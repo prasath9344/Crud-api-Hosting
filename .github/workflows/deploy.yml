@@ -1,4 +1,4 @@
-name: Deploy Crud-api-hosting to AWS ECS Fargate
+name: Deploy Crud-api-Hosting to AWS ECS Fargate
 
 on:
   workflow_dispatch:
