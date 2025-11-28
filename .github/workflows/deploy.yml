@@ -60,7 +60,7 @@ jobs:
 
       - name: Register task definition
         run: |
-          aws ecs register-task-definition --region us-east-1 --cli-input-json file://crud-api-task
+          aws ecs register-task-definition --region us-east-1 --cli-input-json file://crud-api-task.json
 
       - name: Create an ECS Cluster
         run: |
@@ -126,7 +126,6 @@ jobs:
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
           MYSQL_DB: ${{ secrets.MYSQL_DB }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
           
           
         with:
