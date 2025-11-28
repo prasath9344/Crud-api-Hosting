@@ -1,17 +1,17 @@
-name: Deploy crud-api-hosting to AWS ECS Fargate
+name: Deploy Crud-api-hosting to AWS ECS Fargate
 
 on:
   workflow_dispatch:
     inputs:
       name:
-        description: "Deploy the crud-api-hosting into dev"
+        description: "Deploy the crud-api-hosting into Dev"
         default: "dev"
 permissions:
   id-token: write
   contents: read
 env:
-  ECR_REPOSITORY: crud-api-hosting # set this to your Amazon ECR repository name
-  ECS_SERVICE: crud-api-service # set this to your Amazon ECS service name
+  ECR_REPOSITORY: crud-api # set this to your Amazon ECR repository name
+  ECS_SERVICE: crud-dev-service # set this to your Amazon ECS service name
   ECS_CLUSTER: crud-api # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: crud-api-task # set this to the path to your Amazon ECS task definition
     # file, e.g. .aws/task-definition.json
@@ -54,7 +54,7 @@ jobs:
       - name: Create log group
         if: steps.check_log_group.outputs.log_group_exists == 'false'
         run: |
-          aws logs create-log-group --log-group-name crud-api
+          aws logs create-log-group --log-group-name crud-api 
 
       - name: Register task definition
         run: |
