@@ -1,17 +1,17 @@
-name: Deploy 2ndcareers-dev-api to AWS ECS Fargate
+name: Deploy crud-api-hosting to AWS ECS Fargate
 
 on:
   workflow_dispatch:
     inputs:
       name:
-        description: "Deploy the crud-api into Dev"
+        description: "Deploy the crud-api-hosting into dev"
         default: "dev"
 permissions:
   id-token: write
   contents: read
 env:
-  ECR_REPOSITORY: crud-api # set this to your Amazon ECR repository name
-  ECS_SERVICE: crud-dev-service # set this to your Amazon ECS service name
+  ECR_REPOSITORY: crud-api-hosting # set this to your Amazon ECR repository name
+  ECS_SERVICE: crud-api-service # set this to your Amazon ECS service name
   ECS_CLUSTER: crud-api # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION:
     crud-api-task # set this to the path to your Amazon ECS task definition
