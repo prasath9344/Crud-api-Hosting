@@ -17,6 +17,8 @@ env:
     # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: crud-container # set this to the name of the container in the
     # containerDefinitions section of your task definition
+  AWS_REGION: us-east-1
+
 jobs:
   deploy:
     name: Deploy
@@ -124,7 +126,6 @@ jobs:
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
           MYSQL_DB: ${{ secrets.MYSQL_DB }}
-          
           
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
