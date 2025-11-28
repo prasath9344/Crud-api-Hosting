@@ -13,11 +13,9 @@ env:
   ECR_REPOSITORY: crud-api-hosting # set this to your Amazon ECR repository name
   ECS_SERVICE: crud-api-service # set this to your Amazon ECS service name
   ECS_CLUSTER: crud-api # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION:
-    crud-api-task # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: crud-api-task # set this to the path to your Amazon ECS task definition
     # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME:
-    crud-container # set this to the name of the container in the
+  CONTAINER_NAME: crud-container # set this to the name of the container in the
     # containerDefinitions section of your task definition
 jobs:
   deploy:
