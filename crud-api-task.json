@@ -1,0 +1,29 @@
+{
+  "family": "crud-api",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::575327645493:role/ecstaskexecutionrole",
+  "containerDefinitions": [
+    {
+      "name": "crud-container",
+      "image": "REPLACE_ME",
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "crud-api-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "crud-api"
+        }
+      }
+    }
+  ]
+}
